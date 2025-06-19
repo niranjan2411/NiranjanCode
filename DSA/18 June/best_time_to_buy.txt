@@ -1,0 +1,21 @@
+Platform: LeetCode
+○ Link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int left = 0;          // Minimum price tracker
+        int right = 1;         // Current price explorer
+        int max_profit = 0;
+        
+        while (right < prices.size()) {
+            if (prices[left] < prices[right]) {
+                max_profit = max(max_profit, prices[right] - prices[left]);
+            } else {
+                left = right;  // Found new minimum price
+            }
+            right++;
+        }
+        return max_profit;
+    }
+};
