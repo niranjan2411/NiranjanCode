@@ -1,0 +1,17 @@
+https://www.geeksforgeeks.org/problems/alone-in-couple5507/0
+
+class Solution {
+public:
+    int findSingle(vector<int>& arr) {
+        sort(arr.begin(), arr.end());
+        int n = arr.size();
+        int i = 0;
+        while (i < n - 1) {
+            if (arr[i] == arr[i + 1])
+                i += 2;
+            else
+                return arr[i];
+        }
+        return arr[n - 1];
+    }
+};
