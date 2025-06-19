@@ -1,0 +1,11 @@
+// Problem Link: https://leetcode.com/problems/single-number/ 
+
+
+class Solution {
+    public:
+        int singleNumber(vector<int>& nums) {
+            int mask = 0;
+            for(int i = 0, n = nums.size(); i < n; ++i) mask ^= nums[i];
+            return mask;
+        }
+    };
