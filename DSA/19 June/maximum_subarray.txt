@@ -1,0 +1,30 @@
+3. Maximum Subarray
+○ Platform: LeetCode
+○ Link: https://leetcode.com/problems/maximum-subarray/description/
+
+
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int n = nums.size();
+        if (n == 1)
+            return nums[0];
+        int maxSum = INT_MIN;
+        int sum = 0;
+        int start = 0;
+        int ansStart = -1, ansEnd = -1;
+        for (int i = 0; i < n; i++) {
+            if (sum < 0) {
+                sum = 0;
+                start = i;
+            }
+            sum += nums[i];
+            if (sum > maxSum) {
+                maxSum = max(sum, maxSum);
+                ansStart = start;
+                ansEnd = i;
+            }
+        }
+        return maxSum;
+    }
+};
