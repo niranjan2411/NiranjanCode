@@ -1,0 +1,23 @@
+Find the Town Judge
+○ Platform: LeetCode
+○ Link: https://leetcode.com/problems/find-the-town-judge/
+
+
+class Solution {
+public:
+    int findJudge(int n, vector<vector<int>>& trust) {
+        vector<int> tvector(n + 1, 0); 
+
+        for (auto& t : trust) {
+            tvector[t[0]]--; // person t[0] trusts someone(can't be judge)
+            tvector[t[1]]++; // person t[1] is trusted (can be judge)
+        }
+
+        for (int i = 1; i <= n; i++) {
+            if (tvector[i] == n - 1)
+                return i;
+        }
+
+        return -1;
+    }
+};
