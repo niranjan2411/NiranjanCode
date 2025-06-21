@@ -1,0 +1,31 @@
+1. Rotate Image
+○ Platform: LeetCode
+○ Link: https://leetcode.com/problems/rotate-image/
+
+
+class Solution {
+public:
+    // Transpose the matrix
+    void transpose(vector<vector<int>>& matrix) {
+        int n = matrix.size();
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                swap(matrix[i][j], matrix[j][i]);
+            }
+        }
+    }
+
+    // Reverse each row
+    void reverseRows(vector<vector<int>>& matrix) {
+        int n = matrix.size();
+        for (int i = 0; i < n; ++i) {
+            reverse(matrix[i].begin(), matrix[i].end());
+        }
+    }
+
+    // Rotate 90 degrees clockwise
+    void rotate(vector<vector<int>>& matrix) {
+        transpose(matrix);
+        reverseRows(matrix);
+    }
+};
