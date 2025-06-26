@@ -1,0 +1,5 @@
+
+2. Linked List Cycle
+○ Platform: LeetCode
+○ Link: https://leetcode.com/problems/linked-list-cycle/
+
