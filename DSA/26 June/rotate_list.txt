@@ -2,4 +2,50 @@
 ○ Platform: LeetCode
 ○ https://leetcode.com/problems/rotate-list/description/
 
+class Solution {
 
+    int lenOfList(ListNode* head) {
+
+        ListNode* tmp = head;
+
+        int len = 0;
+        while(tmp != nullptr) {
+            len++;
+            tmp = tmp->next;
+        }
+
+        return len;
+    }
+public:
+    ListNode* rotateRight(ListNode* head, int k) {
+        
+        if(head == nullptr || head->next == nullptr) return head;
+        
+        int len = lenOfList(head);
+
+        k = k % len;
+
+        if(k == 0) return head;
+
+        int forward = len - k;
+
+        forward -= 1;
+        ListNode* slow = head;
+
+        while(forward > 0) {
+            slow = slow->next;
+            forward--;
+        }
+
+        ListNode* newHead = slow->next;
+        slow->next = nullptr;
+        ListNode* fast = newHead;
+
+        while(fast != nullptr && fast->next != nullptr) {
+            fast = fast->next;
+        }
+
+        fast->next = head;
+        return newHead;
+    }
+};
