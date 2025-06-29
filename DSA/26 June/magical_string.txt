@@ -1,0 +1,5 @@
+ Magical String
+○ Platform: LeetCode
+○ https://leetcode.com/problems/magical-string/description/
+
+

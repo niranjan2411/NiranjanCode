@@ -1,0 +1,5 @@
+2. Rotate List
+○ Platform: LeetCode
+○ https://leetcode.com/problems/rotate-list/description/
+
+
